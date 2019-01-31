@@ -1,58 +1,121 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+ <div class="hello">
+
+   <div class="right">
+     
+ <!--
+    <div class="left">
+      <h1>{{ title }}</h1>
+
+      
+    </div>
+    <div class="right">
+      <stats />  < Add this 
+    </div>
+ -->
+<b-navbar toggleable="md" type="dark" variant="info">
+
+  <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+
+  <b-navbar-brand href="#">Feeds</b-navbar-brand>
+
+
+
+    <!-- Right aligned nav items -->
+    <b-navbar-nav class="ml-auto">
+
+      <b-nav-form>
+        <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search"/>
+        <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
+      </b-nav-form>
+    
+    </b-navbar-nav>
+
+ 
+</b-navbar>
+  <Profile/>
+  <div class="vl"></div>
+
+<b-container >
+  <b-row>
+
+    <b-col class="bv"
+       v-for="(menu, index) in menus" v-bind:key="index">
+     
+       <b-button  variant="outline-primary sm">
+          {{ menu}}
+          </b-button >
+        </b-col>
+        </b-row>
+</b-container>
+<Cards/>
+</div>
+<!-- navbar-1.vue -->
   </div>
+
+  
 </template>
 
 <script>
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+import Profile from '@/components/Profile.vue'
+import Cards from '@/components/Cards.vue'
+
+import { mapState } from 'vuex'
+
+import 'material-icons/iconfont/material-icons.css';
+
 export default {
+  data(){
+return{
+menus:[
+ " All","Trending","Childhealth","Pregnanacy",
+ "Women's health","Mental health",
+ "Infections","Nutrition","Fitness",  
+ "Skincare","Baby Care","Dental Care",
+ "Medicine","General Health"
+]
+}
+
+  },
   name: 'HelloWorld',
-  props: {
-    msg: String
+ components:{
+Profile,
+Cards
+
+ },
+  computed: 
+  { ...mapState([
+      'title','links'
+    ]),
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style>
+.left {
+    padding: 10px;
+    grid-area: left;
+    background-color: #E9E9E9;
+  }
+ .vl {
+  border-left: 1px solid gainsboro;
+  height: 800px;
+  position: absolute;
+  left: 20%;
+  margin-left: -3px;
+  top: 0;
+  }
+
+  .bv{
+display: flex;
+overflow-x:scroll
+  }
+  b-container{
+display: flex;
+overflow-x:scroll
+  }
+
 </style>
