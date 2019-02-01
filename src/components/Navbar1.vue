@@ -1,6 +1,6 @@
 <template>
- <div>
-    <b-navbar toggleable type="primary" variant="primary">
+ <div >
+    <b-navbar class="navbar1" toggleable type="primary" variant="primary">
         <b-navbar-toggle target="nav_text_collapse"></b-navbar-toggle>
         <b-navbar-brand></b-navbar-brand>
         <b-collapse is-nav id="nav_text_collapse">
@@ -40,14 +40,8 @@ menus:[
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-   nav {
-  width: 100%; /* only for demonstration, should be removed */
-  background:#ffff;
-
-}
-.nav-item{
-width: 99%;
-border-radius: 0%
-}
+   .navbar1{
+     position: sticky
+   }
 
 </style>
