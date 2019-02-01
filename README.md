@@ -1,4 +1,4 @@
-# welvis
+# wellvis
 
 ## Project setup
 ```
