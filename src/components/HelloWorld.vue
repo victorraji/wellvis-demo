@@ -20,6 +20,7 @@ import Cards from "@/components/Cards.vue";
 import Navbar1 from "@/components/Navbar1.vue";
 import Navbar2 from "@/components/Navbar2.vue";
 
+
 import { mapState } from "vuex";
 
 import "material-icons/iconfont/material-icons.css";
@@ -35,7 +36,8 @@ export default {
     Profile,
     Cards,
     Navbar1,
-    Navbar2
+    Navbar2,
+  
   },
   computed: { ...mapState(["title", "links"]) }
 };
