@@ -1,9 +1,9 @@
 <template>
   <div class="profile">
     <b-nav vertical class="w-25">
-  <b-nav-item active>Home</b-nav-item>
-  <b-nav-item>Profile</b-nav-item>
-  <b-nav-item text-wrap="false" >Support Group</b-nav-item>
+  <b-nav-item active >Home</b-nav-item>
+  <b-nav-item href="Login">Profile</b-nav-item>
+  <b-nav-item href="Login" >Support Group</b-nav-item>
 </b-nav>
     <!--<nav>
       <b-list-group class="nav-item">
@@ -41,6 +41,9 @@ return{
   width: 100%; /* only for demonstration, should be removed */
   background:#ffff;
 
+}
+b-nav-item {
+word-wrap: none;
 }
 
 </style>
